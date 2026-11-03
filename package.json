@@ -1,0 +1,36 @@
+{
+  "name": "clawd-kit",
+  "version": "1.0.0",
+  "description": "Canvas2D watercolour character kit: engine, Clawd character suite, component gate and API docs",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "exports": {
+    ".": "./src/styles/clawd/api.ts",
+    "./core/*": "./src/core/*",
+    "./engine/*": "./src/engine/*",
+    "./clawd/*": "./src/styles/clawd/*",
+    "./gate": "./scripts/gate.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "docs"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "gate": "node scripts/gate.mjs",
+    "api-doc": "node scripts/build-api-doc.mjs",
+    "act-strip": "node scripts/act-strip.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.13",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.17"
+  }
+}
