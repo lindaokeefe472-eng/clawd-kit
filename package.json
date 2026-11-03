@@ -16,6 +16,7 @@
     "./node": "./scripts/lib/clawd-node.mjs",
     "./preview": "./scripts/preview-clawd.mjs",
     "./render": "./scripts/lib/render-clawd.mjs",
+    "./index": "./scripts/lib/library-index.mjs",
     "./package.json": "./package.json"
   },
   "files": [
