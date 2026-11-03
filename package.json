@@ -12,7 +12,11 @@
     "./core/*": "./src/core/*",
     "./engine/*": "./src/engine/*",
     "./clawd/*": "./src/styles/clawd/*",
-    "./gate": "./scripts/gate.mjs"
+    "./gate": "./scripts/gate.mjs",
+    "./node": "./scripts/lib/clawd-node.mjs",
+    "./preview": "./scripts/preview-clawd.mjs",
+    "./render": "./scripts/lib/render-clawd.mjs",
+    "./package.json": "./package.json"
   },
   "files": [
     "src",
