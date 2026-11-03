@@ -70,16 +70,16 @@ function indexMd(defs) {
 }
 
 /** Write preview cards (all, or only `names`) and rebuild INDEX.md for a clawd library directory */
-export async function refreshLibrary(libDir = LIB, names = []) {
+export async function refreshLibrary(libDir = LIB, names = [], { previews = true } = {}) {
   setupClawdCanvas();
   const { registry, errors } = await loadRegistry('clawd', CLAWD_INFO.world, [{ dir: libDir, origin: 'library' }]);
   const outDir = path.join(libDir, 'previews');
-  fs.mkdirSync(outDir, { recursive: true });
+  if (previews) fs.mkdirSync(outDir, { recursive: true });
   const defs = [...registry.values()].sort((a, b) => a.kind.localeCompare(b.kind) || a.name.localeCompare(b.name));
   const written = [];
   for (const def of defs) {
     if (names.length && !names.includes(def.name)) continue;
-    fs.writeFileSync(path.join(outDir, `${def.name}.png`), previewCard(def).toBuffer('image/png'));
+    if (previews) fs.writeFileSync(path.join(outDir, `${def.name}.png`), previewCard(def).toBuffer('image/png'));
     written.push(def.name);
   }
   fs.writeFileSync(path.join(libDir, 'INDEX.md'), indexMd(defs));
